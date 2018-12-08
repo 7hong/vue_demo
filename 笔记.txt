@@ -1,0 +1,77 @@
+
+初始化项目 npm init
+安装组件 npm i webpack@^3.10.0 vue vue-loader css-loader vue-template-compiler css-loader vue-template-compiler
+style-loader
+url-loader
+file-loader
+
+静态资源处理
+安装webpack-dev-server
+npm i webpack-dev-server
+npm i cross-env
+npm i html-webpack-plugin
+安装webpack3 npm i webpack@^3.0.0
+=====================================================
+2-1 升级项目
+使用merge合并webpack配置文件
+npm i webpack-merge -D
+2-2
+npm i rimraf -D 
+配置 "clean":"rimraf dist" 通过命令删除dist目录
+
+3、
+extend 扩展组件
+
+Q:在页面中直接输入地址无法访问，devServer不认识path,做如下配置：
+A:
+historyApiFallback:{
+    index: 'index.html'
+}
+路由配置:
+meta配置
+    path:'/app/:id' 匹配 /app/123
+    //配置参数 通过this.$route.params.id  获取
+
+    path:'/app/123?a=123&b=
+    //通过this.$route.query.a 获取123
+
+命名视图
+<router-view name="header" /> //default
+<router-view name="content" /> //app
+
+配置components:{
+    header: h1,//上面显示h1组件
+    content:c1 //下面显示c1组件
+}
+
+导航守卫
+router.beforeEach((to, form, next)=>{
+    next()
+})
+router.beforeResolve((to, form, next)=>{
+    next()
+})
+router.afterEach ((to, form, next)=>{
+    next()
+})
+
+//路由配置
+beforeEnter(to,form,next){
+
+}
+//在组件内部的钩子
+beforeRouteEnter(to, form, next){
+    next(vm=>{
+        
+    })
+}
+
+beforeRouteUpdate(to, form, next){
+//组件params发生变化时触发。
+}
+beforeRouteLeave(to, form, next){
+    //可以控制用户离开当前路由
+}
+
+
+
